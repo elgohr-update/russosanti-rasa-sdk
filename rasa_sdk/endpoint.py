@@ -85,6 +85,12 @@ def create_app(
         body = {"status": "ok"}
         return response.json(body, status=200)
 
+    @app.get("/ping")
+    async def health(_) -> HTTPResponse:
+        """Ping endpoint to check if the server is running and well."""
+        body = {"status": "todo bien por acá rei"}
+        return response.json(body, status=200)
+
     @app.post("/webhook")
     async def webhook(request: Request) -> HTTPResponse:
         """Webhook to retrieve action calls."""
